@@ -1,5 +1,9 @@
 import axios from 'axios';
-export const api = axios.create({ baseURL: import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000/api', timeout: 15000 });
+
+export const api = axios.create({
+  baseURL: import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000/api',
+  timeout: 15000,
+});
 export type Product = { id:number; id_producto:string; descripcion_referencia:string; activo:boolean; ultimo_detalle?:string };
 export type Movement = { id:number; fecha:string; tipo_movimiento:'INGRESO'|'SALIDA'|'TRASPASO'; id_producto?:string; producto_id:string; descripcion_referencia:string; detalle_producto:string; cantidad_kg:string; ufe:string; scrap_kg:string; area_origen:string; area_destino:string; area_posterior:string; entregado_por:string; recibido_por:string; referencia_ht:string; observaciones:string; costo_bs_kg:string|null; ufe_calculada:string; movimiento_almacen:string; costo_total_bs:string|null };
 export type Page<T> = { count:number; next:string|null; previous:string|null; results:T[] };
